@@ -35,13 +35,9 @@
               class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
             >
               <DialogTitle as="h3" class="text-lg leading-8 text-gray-900">
-                モーダルのタイトル
+                <slot name="header"></slot>
               </DialogTitle>
-              <div class="mt-2">
-                <p class="leading-relaxed text-gray-500 text-sm">
-                  モーダルウインドウは、ウェブページやアプリケーションのUIデザインにおいて、メインコンテンツの上にオーバーレイとして表示される小さなウインドウやダイアログボックスのことを指します。モーダルウインドウは以下の特徴や目的を持っています
-                </p>
-              </div>
+              <slot name="body"></slot>
 
               <div class="mt-4 flex gap-4">
                 <button

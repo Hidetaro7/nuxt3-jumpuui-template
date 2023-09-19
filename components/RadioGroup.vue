@@ -77,26 +77,12 @@ import {
   RadioGroupOption,
 } from "@headlessui/vue";
 
-const plans = [
-  {
-    name: "Startup",
-    ram: "12GB",
-    cpus: "6 CPUs",
-    disk: "160 GB SSD disk",
+const props = defineProps({
+  options: {
+    type: Array,
   },
-  {
-    name: "Business",
-    ram: "16GB",
-    cpus: "8 CPUs",
-    disk: "512 GB SSD disk",
-  },
-  {
-    name: "Enterprise",
-    ram: "32GB",
-    cpus: "12 CPUs",
-    disk: "1024 GB SSD disk",
-  },
-];
+});
+const plans = props.options;
 
 const selected = ref(plans[0]);
 </script>
