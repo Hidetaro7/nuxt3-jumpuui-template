@@ -1,9 +1,9 @@
 <template>
-  <div class="">
+  <div class="not-prose">
     <Listbox v-model="selectedPerson">
       <div class="relative mt-1">
         <ListboxButton
-          class="relative w-full cursor-default rounded-lg bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm"
+          class="relative jumpu-card cursor-default bg-white py-2 pl-3 pr-10 text-left focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-300"
         >
           <span class="block truncate">{{ selectedPerson.name }}</span>
           <span
@@ -29,7 +29,7 @@
             >
               <li
                 :class="[
-                  active ? 'bg-amber-100 text-amber-900' : 'text-gray-900',
+                  active ? 'bg-primary-100 text-primary-900' : 'text-gray-900',
                   'relative cursor-default select-none py-2 pl-10 pr-4',
                 ]"
               >
@@ -42,7 +42,7 @@
                 >
                 <span
                   v-if="selected"
-                  class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 text-primary-600"
                 >
                 </span>
               </li>
@@ -64,13 +64,11 @@ import {
   ListboxOption,
 } from "@headlessui/vue";
 
-const people = [
-  { name: "Wade Cooper" },
-  { name: "Arlene Mccoy" },
-  { name: "Devon Webb" },
-  { name: "Tom Cook" },
-  { name: "Tanya Fox" },
-  { name: "Hellen Schmidt" },
-];
+const props = defineProps({
+  options: {
+    type: Array,
+  },
+});
+const people = props.options;
 const selectedPerson = ref(people[0]);
 </script>

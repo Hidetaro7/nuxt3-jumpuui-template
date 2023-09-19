@@ -18,7 +18,7 @@
                   : '',
                 checked ? 'bg-primary-700 text-white ' : 'bg-white ',
               ]"
-              class="flex cursor-pointer rounded-lg px-5 py-4 shadow-md focus:outline-none"
+              class="flex cursor-pointer jumpu-card px-5 py-4 focus:outline-none"
             >
               <div class="flex w-full items-center justify-between">
                 <div class="flex items-center">

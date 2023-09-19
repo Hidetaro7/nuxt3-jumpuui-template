@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <button type="button" @click="openModal" class="jumpu-outlined-button">
-      Open dialog
+      モーダルを開く
     </button>
   </div>
   <TransitionRoot appear :show="isOpen" as="template">
@@ -34,16 +34,12 @@
             <DialogPanel
               class="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all"
             >
-              <DialogTitle
-                as="h3"
-                class="text-lg font-medium leading-6 text-gray-900"
-              >
-                Payment successful
+              <DialogTitle as="h3" class="text-lg leading-8 text-gray-900">
+                モーダルのタイトル
               </DialogTitle>
               <div class="mt-2">
-                <p class="text-sm text-gray-500">
-                  Your payment has been successfully submitted. We’ve sent you
-                  an email with all of the details of your order.
+                <p class="leading-relaxed text-gray-500 text-sm">
+                  モーダルウインドウは、ウェブページやアプリケーションのUIデザインにおいて、メインコンテンツの上にオーバーレイとして表示される小さなウインドウやダイアログボックスのことを指します。モーダルウインドウは以下の特徴や目的を持っています
                 </p>
               </div>
 

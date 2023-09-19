@@ -1,12 +1,12 @@
 <template>
-  <div class="">
+  <div class="not-prose">
     <Combobox v-model="selected">
       <div class="relative mt-1">
         <div
-          class="relative cursor-default rounded-lg bg-white text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm"
+          class="relative cursor-default bg-white text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-300"
         >
           <ComboboxInput
-            class="w-full jumpu-input py-2 pl-3 pr-10 text-sm leading-5 text-gray-900 focus:ring-0"
+            class="jumpu-input py-2 pl-3 pr-10 leading-5 text-gray-900 focus:ring-0"
             placeholder="候補を検索"
             :displayValue="(person) => person.name"
             @change="query = $event.target.value"
@@ -23,7 +23,7 @@
           @after-leave="query = ''"
         >
           <ComboboxOptions
-            class="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+            class="absolute mt-1 max-h-60 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm z-50"
           >
             <div
               v-if="filteredPeople.length === 0 && query !== ''"
@@ -40,9 +40,9 @@
               v-slot="{ selected, active }"
             >
               <li
-                class="relative cursor-default select-none py-2 pl-10 pr-4"
+                class="relative cursor-default select-none py-2 pl-10 pr-8"
                 :class="{
-                  'bg-teal-600 text-white': active,
+                  'bg-primary-600 text-white': active,
                   'text-gray-900': !active,
                 }"
               >
@@ -55,7 +55,7 @@
                 <span
                   v-if="selected"
                   class="absolute inset-y-0 left-0 flex items-center pl-3"
-                  :class="{ 'text-white': active, 'text-teal-600': !active }"
+                  :class="{ 'text-white': active, 'text-primary-600': !active }"
                 >
                 </span>
               </li>
@@ -78,14 +78,12 @@ import {
   TransitionRoot,
 } from "@headlessui/vue";
 
-const people = [
-  { id: 1, name: "Wade Cooper" },
-  { id: 2, name: "Arlene Mccoy" },
-  { id: 3, name: "Devon Webb" },
-  { id: 4, name: "Tom Cook" },
-  { id: 5, name: "Tanya Fox" },
-  { id: 6, name: "Hellen Schmidt" },
-];
+const props = defineProps({
+  options: {
+    type: Array,
+  },
+});
+const people = props.options;
 
 let selected = ref("");
 let query = ref("");
