@@ -8,7 +8,12 @@
       </section>
       <section>
         <h2>ToggleSwitch</h2>
-        <ToggleSwitch />
+        <p>
+          <ToggleSwitch v-model="switchValue" />
+        </p>
+        <p>
+          <ToggleSwitch />
+        </p>
       </section>
       <section>
         <h2>Modal</h2>
@@ -44,6 +49,8 @@
 </template>
 
 <script setup>
+const switchValue = ref(false);
+
 const people = [
   { id: 1, name: "堀口 康文" },
   { id: 2, name: "小野寺 遥" },
