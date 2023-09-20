@@ -12,7 +12,7 @@
           <ToggleSwitch v-model="switchValue" />
         </p>
         <p>
-          <ToggleSwitch />
+          <ToggleSwitch size="small" />
         </p>
       </section>
       <section>

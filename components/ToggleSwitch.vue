@@ -1,8 +1,8 @@
 <template>
-  <div class="jumpu-toggle-switch w-16 h-8">
+  <div class="jumpu-toggle-switch" :class="sizeStyle[0]">
     <input :id="id" type="checkbox" v-model="checked" @change="changed" />
     <label :for="id">
-      <span class="w-8 h-8"></span>
+      <span :class="sizeStyle[1]"></span>
     </label>
   </div>
 </template>
@@ -18,7 +18,19 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  size: {
+    type: String,
+    default: "default",
+  },
 });
 const checked = ref(props.modelValue);
+const sizeStyle = computed(() => {
+  switch (props.size) {
+    case "small":
+      return ["w-8 h-4", "w-4 h-4"];
+    case "default":
+      return ["w-16 h-8", "w-8 h-8"];
+  }
+});
 const changed = () => emit("update:modelValue", checked.value);
 </script>
