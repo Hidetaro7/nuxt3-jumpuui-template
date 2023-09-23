@@ -35,7 +35,7 @@
 
       <section>
         <h2>tags</h2>
-        <Combobox :options="tags" />
+        <TagsInput :whitelist="tags" />
       </section>
 
       <section>
