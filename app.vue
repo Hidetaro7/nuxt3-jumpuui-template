@@ -32,6 +32,12 @@
         <h2>Combobox</h2>
         <Combobox :options="people" />
       </section>
+
+      <section>
+        <h2>tags</h2>
+        <Combobox :options="tags" />
+      </section>
+
       <section>
         <h2>Menu</h2>
         <Menu />
@@ -58,6 +64,20 @@ const people = [
   { id: 4, name: "山根 崇史" },
   { id: 5, name: "坂井 隆博" },
   { id: 6, name: "川原 建" },
+];
+
+const tags = [
+  { name: "UI" },
+  { name: "UX" },
+  { name: "Vue" },
+  { name: "React" },
+  { name: "Angular" },
+  { name: "Svelte" },
+  { name: "Next.js" },
+  { name: "Nuxt.js" },
+  { name: "Vite" },
+  { name: "Webpack" },
+  { name: "Rollup" },
 ];
 const plans = [
   {
