@@ -50,6 +50,11 @@
         <h2>RadioGroup</h2>
         <RadioGroup :options="plans" />
       </section>
+
+      <section>
+        <h2>Segment</h2>
+        <Segment />
+      </section>
     </div>
   </div>
 </template>
@@ -67,17 +72,17 @@ const people = [
 ];
 
 const tags = [
-  { name: "UI" },
-  { name: "UX" },
-  { name: "Vue" },
-  { name: "React" },
-  { name: "Angular" },
-  { name: "Svelte" },
-  { name: "Next.js" },
-  { name: "Nuxt.js" },
-  { name: "Vite" },
-  { name: "Webpack" },
-  { name: "Rollup" },
+  "UI",
+  "UX",
+  "Vue",
+  "React",
+  "Angular",
+  "Svelte",
+  "Next",
+  "Nuxt",
+  "Vite",
+  "Webpack",
+  "Rollup",
 ];
 const plans = [
   {

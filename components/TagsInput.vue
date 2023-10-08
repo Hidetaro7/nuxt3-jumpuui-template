@@ -10,16 +10,17 @@
 
 <script setup>
 import Tagify from "@yaireo/tagify";
-var inputInside = ref(null);
+const inputInside = ref(null);
+const props = defineProps({
+  whitelist: {
+    type: Array,
+    default: () => [],
+  },
+});
 onMounted(() => {
   const tagify = new Tagify(inputInside.value, {
     enforceWhitelist: false,
-    whitelist: [
-      "The Shawshank Redemption",
-      "The Godfather",
-      "The Godfather: Part II",
-      "The Dark Knight",
-    ],
+    whitelist: props.whitelist,
     callbacks: {
       add: console.log, // callback when adding a tag
       remove: console.log, // callback when removing a tag
@@ -27,11 +28,11 @@ onMounted(() => {
     dropdown: {
       maxItems: 20, // <- mixumum allowed rendered suggestions
       classname: "tags-look", // <- custom classname for this dropdown, so it could be targeted
-      enabled: 0, // <- show suggestions on focus
+      enabled: 1, // <- show suggestions on focus
       closeOnSelect: true, // <- do not hide the suggestions dropdown once an item has been selected
     },
   });
-  tagify.dropdown.show(); // load the list
+  //tagify.dropdown.show(); // load the list
 });
 </script>
 
