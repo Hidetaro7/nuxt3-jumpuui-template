@@ -35,7 +35,7 @@
 
       <section>
         <h2>tags</h2>
-        <Combobox :options="tags" />
+        <TagsInput :whitelist="tags" />
       </section>
 
       <section>
@@ -49,6 +49,11 @@
       <section>
         <h2>RadioGroup</h2>
         <RadioGroup :options="plans" />
+      </section>
+
+      <section>
+        <h2>Segment</h2>
+        <Segment />
       </section>
     </div>
   </div>
@@ -67,17 +72,17 @@ const people = [
 ];
 
 const tags = [
-  { name: "UI" },
-  { name: "UX" },
-  { name: "Vue" },
-  { name: "React" },
-  { name: "Angular" },
-  { name: "Svelte" },
-  { name: "Next.js" },
-  { name: "Nuxt.js" },
-  { name: "Vite" },
-  { name: "Webpack" },
-  { name: "Rollup" },
+  "UI",
+  "UX",
+  "Vue",
+  "React",
+  "Angular",
+  "Svelte",
+  "Next",
+  "Nuxt",
+  "Vite",
+  "Webpack",
+  "Rollup",
 ];
 const plans = [
   {
