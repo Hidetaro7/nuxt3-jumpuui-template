@@ -55,11 +55,53 @@
         <h2>Segment</h2>
         <Segment />
       </section>
+
+      <section>
+        <h2>Sortable</h2>
+        <div ref="els">
+          <div
+            v-for="item in list"
+            :key="item.id"
+            class="jumpu-card sortable-item mb-2"
+          >
+            <div class="p-4 handle">{{ item.name }}</div>
+          </div>
+        </div>
+      </section>
     </div>
   </div>
 </template>
 
+<style lang="scss" scoped>
+.sortable-item {
+  .handle {
+    @apply cursor-grab;
+  }
+}
+.sortable-chosen {
+  @apply border-gray-800 cursor-grabbing;
+  @apply cursor-grabbing;
+}
+.sortable-ghost {
+  @apply opacity-50 border-gray-300;
+}
+</style>
+
 <script setup>
+import { useSortable } from "@vueuse/integrations/useSortable";
+
+const els = ref();
+const list = ref([
+  { id: 1, name: "a" },
+  { id: 2, name: "b" },
+  { id: 3, name: "c" },
+]);
+
+useSortable(els, list, {
+  handle: ".handle",
+  animation: 150,
+});
+
 const switchValue = ref(false);
 
 const people = [
