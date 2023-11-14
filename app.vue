@@ -6,7 +6,7 @@
       <section>
         <h2>Notifications</h2>
         {{ isSupported }}
-        <button class="jumpu-button" @click="notificationShow()">Show</button>
+        <button class="jumpu-button" @click="noteShow()">Show</button>
       </section>
       <section>
         <Textarea @input="console.log($event)" />
