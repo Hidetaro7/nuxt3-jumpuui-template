@@ -3,6 +3,9 @@
     <div class="prose max-w-none px-4 py-3">
       <h1 class="text-gray-700">Jumpu UI Vue</h1>
       <section>
+        <Textarea @input="console.log($event)" />
+      </section>
+      <section>
         <h2>Spinner</h2>
         <Spinner />
       </section>
