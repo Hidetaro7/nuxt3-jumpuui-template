@@ -2,6 +2,12 @@
   <div>
     <div class="prose max-w-none px-4 py-3">
       <h1 class="text-gray-700">Jumpu UI Vue</h1>
+
+      <section>
+        <h2>Notifications</h2>
+        {{ isSupported }}
+        <button class="jumpu-button" @click="notificationShow()">Show</button>
+      </section>
       <section>
         <Textarea @input="console.log($event)" />
       </section>
@@ -149,4 +155,27 @@ const plans = [
     disk: "1024 GB SSD disk",
   },
 ];
+
+import { useWebNotification } from "@vueuse/core";
+
+const {
+  isSupported,
+  notification,
+  show: noteShow,
+  close,
+  onClick,
+  onShow,
+  onError,
+  onClose,
+} = useWebNotification({
+  title: "Hello, VueUse world!",
+  dir: "auto",
+  lang: "en",
+  renotify: true,
+  tag: "test",
+});
+
+const notificationShow = () => {
+  if (isSupported.value) noteShow();
+};
 </script>
