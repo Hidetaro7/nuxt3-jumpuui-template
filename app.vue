@@ -175,7 +175,5 @@ const {
   tag: "test",
 });
 
-const notificationShow = () => {
-  if (isSupported.value) noteShow();
-};
+if (isSupported.value) noteShow();
 </script>
