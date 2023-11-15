@@ -179,6 +179,7 @@ onMounted(() => {
   if (isSupported.value) noteShow();
   const noteOption = {
     body: "経費申請は本日15時までにお願いします。",
+    badge: "/badge.png",
   };
   if (!("Notification" in window)) {
     // Check if the browser supports notifications
