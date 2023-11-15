@@ -2,6 +2,12 @@
   <div>
     <div class="prose max-w-none px-4 py-3">
       <h1 class="text-gray-700">Jumpu UI Vue</h1>
+
+      <section>
+        <h2>Notifications</h2>
+        {{ isSupported }}
+        <button class="jumpu-button" @click="noteShow()">Show</button>
+      </section>
       <section>
         <Textarea @input="console.log($event)" />
       </section>
@@ -149,4 +155,47 @@ const plans = [
     disk: "1024 GB SSD disk",
   },
 ];
+
+import { useWebNotification } from "@vueuse/core";
+
+const {
+  isSupported,
+  notification,
+  show: noteShow,
+  close,
+  onClick,
+  onShow,
+  onError,
+  onClose,
+} = useWebNotification({
+  title: "Hello, VueUse world!",
+  dir: "auto",
+  lang: "en",
+  renotify: true,
+  tag: "test",
+});
+
+onMounted(() => {
+  if (isSupported.value) noteShow();
+  const noteOption = {
+    body: "経費申請は本日15時までにお願いします。",
+    badge: "/badge.png",
+  };
+  if (!("Notification" in window)) {
+    // Check if the browser supports notifications
+    alert("This browser does not support desktop notification");
+  } else if (Notification.permission === "granted") {
+    // Check whether notification permissions have already been granted;
+    // if so, create a notification
+    const notification = new Notification("秋葉秀樹", noteOption);
+    // …
+  } else if (Notification.permission !== "denied") {
+    // We need to ask the user for permission
+    Notification.requestPermission().then((permission) => {
+      if (permission === "granted") {
+        const notification = new Notification("秋葉秀樹", noteOption);
+      }
+    });
+  }
+});
 </script>
