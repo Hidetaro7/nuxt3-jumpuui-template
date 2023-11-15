@@ -175,5 +175,7 @@ const {
   tag: "test",
 });
 
-if (isSupported.value) noteShow();
+onMounted(() => {
+  if (isSupported.value) noteShow();
+});
 </script>
