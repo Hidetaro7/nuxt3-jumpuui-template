@@ -2,7 +2,20 @@
   <div>
     <div class="prose max-w-none px-4 py-3">
       <h1 class="text-gray-700">Jumpu UI Vue</h1>
+
       <section>
+        <Segmented
+          :menus="[
+            { label: 'カテゴリ1' },
+            { label: 'カテゴリ2' },
+            { label: 'カテゴリ3' },
+          ]"
+          @change="console.log($event)"
+        />
+      </section>
+
+      <section>
+        <h2>Textarea(resize)</h2>
         <Textarea @input="console.log($event)" />
       </section>
       <section>
@@ -56,7 +69,7 @@
 
       <section>
         <h2>Segment</h2>
-        <Segment />
+        <ButtonGroup />
       </section>
 
       <section>
